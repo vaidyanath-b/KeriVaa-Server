@@ -6,7 +6,7 @@ module.exports.createTeam = async (insertTeamData) => {
     
         try {
             const newTeam = await pool.query(
-                "INSERT INTO team (teamName,eventId,teamCategory) VALUES ($1, $2, $3) RETURNING *",
+                "INSERT INTO team (team_name,event_id,team_category) VALUES ($1, $2, $3) RETURNING *",
                 [teamName,eventId,teamCategory]
             );
                return newTeam.rows[0];
@@ -44,7 +44,7 @@ module.exports.updateteam = async (id, updateteamData) => {
 
     try {
         const updateteam = await pool.query(
-            "UPDATE team SET teamname = $1, eventId = $2, teamCategory = $3 WHERE id = $4",
+            "UPDATE team SET team_name = $1, event_id = $2, team_category = $3 WHERE id = $4",
             [teamName,eventId,teamCategory,id]
         );
         return updateteam;
