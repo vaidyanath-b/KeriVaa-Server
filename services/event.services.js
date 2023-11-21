@@ -2,12 +2,12 @@ const {pool} = require('../config/supabase.config');
 
 module.exports.addEvent = async (addEventData) => {
     
-        const {name , end_date,start_date } = addEventData;
+        const {name , date,hub_id } = addEventData;
     
         try {
             const newEvent = await pool.query(
-                "INSERT INTO eventHub (name,end_date,start_date) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *",
-                [name,end_date,start_date]
+                "INSERT INTO event (name,date,hub_id) VALUES ($1, $2, $3) RETURNING *",
+                [name,date,hub_id]
             );
     
             return newEvent.rows[0];
