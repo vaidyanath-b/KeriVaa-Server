@@ -3,6 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 
+router.use('/signin', require('./signin.route'));
 router.use('/event', require('./event.route'));
 router.use('/eventHub', require('./eventHub.route'));
 router.use('/poll', require('./poll.route'));
