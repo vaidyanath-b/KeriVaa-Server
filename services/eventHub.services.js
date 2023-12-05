@@ -65,7 +65,7 @@ module.exports.deleteeventhub = async (id) => {
 
 module.exports.getEventsOfHub = async (hubId) => {
     try {
-        const allEvents = await pool.query("SELECT * FROM event WHERE hub_id = $1", [hubId]);
+        const allEvents = await pool.query("SELECT id,name FROM event_details WHERE hub_id = $1", [hubId]);
         return allEvents.rows;
     }
     catch (err) {

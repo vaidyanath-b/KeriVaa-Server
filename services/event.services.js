@@ -29,7 +29,7 @@ module.exports.getEvents = async () => {
 
 module.exports.getEventById = async (id) => {
     try {
-        const allEvents = await pool.query("SELECT * FROM eventHub WHERE id = $1", [id]);
+        const allEvents = await pool.query("SELECT * FROM event_details id = $1", [id]);
         return allEvents.rows[0];
     }
     catch (err) {

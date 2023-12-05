@@ -19,4 +19,11 @@ router.get('/:id', async (req, res) => {
     res.status(200).json(event);
 })
 
+router.get('/:id/events', async (req, res) => {
+    const { id } = req.params;
+    const event = await eventHubServices.getEventsOfHub(id);
+    res.status(200).json(event);
+}
+)
+
 module.exports = router;
